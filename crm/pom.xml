@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.fingersales</groupId>
+	<artifactId>FingerSales</artifactId>
+	<name>FingerSales</name>
+	<packaging>war</packaging>
+	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<properties>
+		<java-version>1.8</java-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.springframework-version>5.0.8.RELEASE</org.springframework-version>
+		<org.springframework-security-version>5.0.7.RELEASE</org.springframework-security-version>
+		<org.aspectj-version>1.6.10</org.aspectj-version>
+		<org.mybatis.version>3.4.6</org.mybatis.version>
+		<org.mariadb.version>2.5.3</org.mariadb.version>
+		<sqljdbc.version>4.0.2206.100</sqljdbc.version>
+		<jsonsimple.version>1.1.1</jsonsimple.version>
+		<apache.poi.version>4.1.2</apache.poi.version>
+		<logback.version>1.3.0-alpha10</logback.version>
+        <logback.ext.spring.version>0.1.5</logback.ext.spring.version>
+        <slf4j.version>2.0.0-alpha5</slf4j.version>
+        <cxf.version>3.4.4</cxf.version>
+        <log4j.version>2.17.0</log4j.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<env>local</env>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<env>dev</env>
+			</properties>
+			
+		</profile>
+		<profile>
+			<id>stg</id>
+			<properties>
+				<env>stg</env>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+
+	<repositories>
+		<repository>
+			<id>localrepository</id>
+			<url>file://${basedir}/src/main/repo</url>
+		</repository>
+		<repository>
+			<id>sonatype-snapshots</id>
+			<name>sonatype-snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</repository>
+		<repository>
+			<id>com.e-iceblue</id>
+			<name>e-iceblue</name>
+			<url>http://repo.e-iceblue.com/nexus/content/groups/public/</url>
+		</repository>
+<!-- 		<repository> -->
+<!-- 		    <id>oracle</id> -->
+<!-- 		    <name>Oracle JDBC Repository</name> -->
+<!-- 		    <url>http://repo.spring.io/plugins-release/</url>			 -->
+<!-- 		</repository> -->
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>custom</groupId>
+			<artifactId>finger-web-api</artifactId>
+			<version>2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>custom</groupId>
+			<artifactId>weAuthClient-dev</artifactId>
+			<version>3.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.3</version>
+		</dependency>
+		<dependency>
+		    <groupId>net.glxn.qrgen</groupId>
+		    <artifactId>javase</artifactId>
+		    <version>2.0</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>2.7.0</version> 
+		</dependency>
+		<!-- Oracle -->
+		<dependency>
+		    <groupId>com.oracle.ojdbc</groupId>
+		    <artifactId>ojdbc8</artifactId>
+		    <version>19.3.0.0</version>
+		</dependency>
+		<!-- MyBatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${org.mybatis.version}</version>
+		</dependency>
+		<!-- Mariadb JDBC -->
+		<dependency>
+			<groupId>org.mariadb.jdbc</groupId>
+			<artifactId>mariadb-java-client</artifactId>
+			<version>${org.mariadb.version}</version>
+		</dependency>
+		<!-- 통합검색을 위해 MySql 커넥터 사용 -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>5.1.47</version>
+		</dependency>
+
+		<!-- SQL JDBC -->
+		<dependency>
+			<groupId>com.hynnet</groupId>
+			<artifactId>sqljdbc-chs</artifactId>
+			<version>${sqljdbc.version}</version>
+		</dependency>
+		<!-- Json Simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>${jsonsimple.version}</version>
+		</dependency>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<!-- AspectJ -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${org.aspectj-version}</version>
+		</dependency>	
+        <!-- Logging with SLF4J & LogBack -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-access</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.logback-extensions</groupId>
+            <artifactId>logback-ext-spring</artifactId>
+            <version>${logback.ext.spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>org.slf4j</groupId> -->
+<!--             <artifactId>slf4j-jcl</artifactId> -->
+<!--             <version>${slf4j.version}</version> -->
+<!--         </dependency> -->
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- validation -->
+		<dependency>
+		    <groupId>javax.validation</groupId>
+		    <artifactId>validation-api</artifactId>
+		    <version>1.1.0.Final</version>
+		</dependency>
+		<!-- json -->
+		<dependency>
+		    <groupId>javax.json</groupId>
+		    <artifactId>javax.json-api</artifactId>
+		    <version>1.0</version>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.sap.conn.jco</groupId> -->
+<!-- 			<artifactId>sapjco3</artifactId> -->
+<!-- 			<version>3.0.14</version> -->
+<!-- 		</dependency> -->
+
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20210307</version>
+		</dependency>
+
+		<!-- WebSocket -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>javax.websocket</groupId>
+		    <artifactId>javax.websocket-api</artifactId>
+		    <version>1.1</version>
+		    <scope>provided</scope>
+		</dependency>
+		<!-- jackson -->
+		<!-- <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.5.3</version>
+            <scope>runtime</scope>
+        </dependency> -->
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${org.springframework-security-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-beans</artifactId>
+		    <version>${org.springframework-security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework-security-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework-security-version}</version>
+		</dependency>
+		<!-- JSON Util -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>2.4</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		<!-- Apache POI -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml-schemas</artifactId>
+			<version>${apache.poi.version}</version>
+		</dependency>
+		<!-- Google Gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<!-- Java Mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<!-- Apache Commons FileUpload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3</version>
+		</dependency>
+		<!-- Apache Commons IO -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>	
+		<!-- log4j -->
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-api</artifactId>
+		    <version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		
+		<!--Dom Parser -->
+		<dependency>
+		    <groupId>xerces</groupId>
+		    <artifactId>xercesImpl</artifactId>
+		    <version>2.12.1</version>
+		</dependency>
+
+
+		<!--  
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>2.0.9.RELEASE</version>
+		</dependency>
+
+	<dependency>
+		<groupId>redis.clients</groupId>
+		<artifactId>jedis</artifactId>
+		<version>2.9.0</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.session</groupId>
+		<artifactId>spring-session-data-redis</artifactId>
+		<version>2.0.5.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>io.lettuce</groupId>
+		<artifactId>lettuce-core</artifactId>
+		<version>5.0.4.RELEASE</version>
+	</dependency>
+	-->
+	
+	<dependency>
+	    <groupId>org.springframework.social</groupId>
+	    <artifactId>spring-social-google</artifactId>
+	    <version>1.0.0.RELEASE</version>
+	</dependency>
+	
+	
+	<dependency>
+		<groupId>com.fasterxml.jackson.core</groupId>
+		<artifactId>jackson-databind</artifactId>
+		<version>2.9.8</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-core</artifactId>
+	    <version>2.9.8</version>
+	</dependency>
+		
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-annotations</artifactId>
+	    <version>2.9.8</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>com.google.apis</groupId>
+	    <artifactId>google-api-services-people</artifactId>
+	    <version>v1-rev20210406-1.31.0</version>
+	</dependency>
+		
+	<dependency>
+		<groupId>com.google.apis</groupId>
+		<artifactId>google-api-services-calendar</artifactId>
+		<version>v3-rev401-1.25.0</version>
+	</dependency>
+	
+	 <!-- convert PDF -->
+	<dependency>
+        <groupId>e-iceblue</groupId>
+        <artifactId>spire.xls</artifactId>
+        <version>4.3.4</version>
+    </dependency>
+    
+    <!-- cxf -->
+ 	<dependency>
+		<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-frontend-jaxws</artifactId>
+		<version>${cxf.version}</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-databinding-jaxb</artifactId>
+		<version>${cxf.version}</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+	<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-rs-client</artifactId>
+		<version>${cxf.version}</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-transports-http</artifactId>
+		<version>${cxf.version}</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+	<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-wsdl</artifactId>
+		<version>${cxf.version}</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<dependency>
+		<groupId>wsdl4j</groupId>
+		<artifactId>wsdl4j</artifactId>
+		<version>1.6.2</version>
+	</dependency>
+	
+
+	<!-- https://mvnrepository.com/artifact/javax.xml.rpc/javax.xml.rpc-api -->
+	<dependency>
+	    <groupId>javax.xml.rpc</groupId>
+	    <artifactId>javax.xml.rpc-api</artifactId>
+	    <version>1.1.2</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/javax.xml.rpc/com.springsource.javax.xml.rpc -->
+	<dependency>
+	    <groupId>javax.xml.rpc</groupId>
+	    <artifactId>com.springsource.javax.xml.rpc</artifactId>
+	    <version>1.1.0</version>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.apache.axis/axis -->
+	<dependency>
+	    <groupId>org.apache.axis</groupId>
+	    <artifactId>axis</artifactId>
+	    <version>1.4</version>
+	</dependency>
+
+
+    <!-- poi UserAgent -->
+    <dependency> 
+		<groupId>org.apache.xmlgraphics</groupId> 
+		<artifactId>batik-bridge</artifactId> 
+		<version>1.11</version> 
+	</dependency>
+	
+	<!-- PDFBox -->
+	<dependency>
+	    <groupId>org.apache.pdfbox</groupId>
+	    <artifactId>pdfbox</artifactId>
+	    <version>2.0.13</version>
+	</dependency>
+	  
+	<!-- PDFBox-Tool -->
+	<dependency>
+	    <groupId>org.apache.pdfbox</groupId>
+	    <artifactId>pdfbox-tools</artifactId>
+	    <version>2.0.13</version>
+	</dependency> 
+	
+	<!-- https://mvnrepository.com/artifact/com.twelvemonkeys.imageio/imageio-jpeg -->
+	<dependency>
+	    <groupId>com.twelvemonkeys.imageio</groupId>
+	    <artifactId>imageio-jpeg</artifactId>
+	    <version>3.6</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.twelvemonkeys.imageio/imageio-tiff -->
+	<dependency>
+	    <groupId>com.twelvemonkeys.imageio</groupId>
+	    <artifactId>imageio-tiff</artifactId>
+	    <version>3.6</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.twelvemonkeys.servlet/servlet -->
+	<dependency>
+	    <groupId>com.twelvemonkeys.servlet</groupId>
+	    <artifactId>servlet</artifactId>
+	    <version>3.6</version>
+	</dependency>
+
+	<dependency>
+	  <groupId>me.saro</groupId>
+	  <artifactId>sap-jco-manager</artifactId>
+	  <version>3.0.14.7</version>
+	</dependency>
+
+	<dependency>
+            <groupId>me.saro</groupId>
+            <artifactId>kit</artifactId>
+            <version>0.0.7</version>
+    </dependency>
+    
+	</dependencies>
+	<build>
+		<finalName>${project.artifactId}</finalName>
+
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<filters>
+			<filter>src/main/properties/${env}/database.properties</filter>
+			<filter>src/main/properties/${env}/logback.properties</filter>
+			<filter>src/main/properties/${env}/secretKey.properties</filter>
+			<filter>src/main/properties/${env}/domain.properties</filter>
+		</filters>
+
+		<plugins>
+            <plugin>
+            	<groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<compilerVersion>${java-version}</compilerVersion>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<configuration>
+					<mainClass>org.test.int1.Main</mainClass>
+				</configuration>
+			</plugin>
+			
+			<!-- sonarQube 7.7 -->
+		    <plugin>
+		      <groupId>org.codehaus.mojo</groupId>
+		      <artifactId>sonar-maven-plugin</artifactId>
+		    </plugin>
+		    
+		</plugins>
+	</build>
+</project>
