@@ -17,8 +17,8 @@
         <maven.test.skip>true</maven.test.skip>
         <replacement.resources>${project.build.directory}/replacement</replacement.resources>
         <webapp-lib>${project.basedir}\webapp\WEB-INF\lib</webapp-lib>
-        <poi.version>4.1.2</poi.version>
-        <cxf.version>3.1.12</cxf.version>
+        <poi.version>5.2.1</poi.version>
+        <cxf.version>3.1.16</cxf.version>
         <spring.framework.version>5.0.7.RELEASE</spring.framework.version>
         <spring.security.version>5.0.7.RELEASE</spring.security.version>
         <dev.service.url>https://fcm-dev.hdel.co.kr/</dev.service.url>
@@ -124,15 +124,15 @@
                                         <!-- Custom 설정 파일을 작업 디렉토리로 이동 -->
                                         <copy todir="${replacement.resources}" overwrite="true">
                                             <fileset dir="${project.basedir}/webapp">
-                                                <include name="**/web.xml" />
-                                                <include name="**/environment.xml.js" />
-                                                <include name="index.html" />
+                                                <include name="**/web.xml"/>
+                                                <include name="**/environment.xml.js"/>
+                                                <include name="index.html"/>
                                             </fileset>
                                         </copy>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${dev.service.url}" />
+                                        <echo message="replace service url : ${dev.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${dev.service.url}" encoding="UTF-8">
-                                            <include name="**/environment.xml*.js" />
+                                            <include name="**/environment.xml*.js"/>
                                             <replacetoken>http://localhost:8080/</replacetoken>
                                         </replace>
                                         <!-- Custom 설정 적용 : active profile -->
@@ -142,13 +142,13 @@
                                             <replacetoken>local</replacetoken>
                                         </replace>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${dev.service.url}" />
+                                        <echo message="replace service url : ${dev.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${dev.service.url}" encoding="UTF-8">
                                             <include name="**/web.xml"/>
                                             <replacetoken>http://devhost:8080/</replacetoken>
                                         </replace>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${dev.service.url}" />
+                                        <echo message="replace service url : ${dev.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${dev.service.url}" encoding="UTF-8">
                                             <include name="index.html"/>
                                             <replacetoken>http://localhost:8080/</replacetoken>
@@ -216,15 +216,15 @@
                                         <!-- Custom 설정 파일을 작업 디렉토리로 이동 -->
                                         <copy todir="${replacement.resources}" overwrite="true">
                                             <fileset dir="${project.basedir}/webapp">
-                                                <include name="**/web.xml" />
-                                                <include name="**/environment.xml.js" />
-                                                <include name="index.html" />
+                                                <include name="**/web.xml"/>
+                                                <include name="**/environment.xml.js"/>
+                                                <include name="index.html"/>
                                             </fileset>
                                         </copy>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${prod.service.url}" />
+                                        <echo message="replace service url : ${prod.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${prod.service.url}" encoding="UTF-8">
-                                            <include name="**/environment.xml*.js" />
+                                            <include name="**/environment.xml*.js"/>
                                             <replacetoken>http://localhost:8080/</replacetoken>
                                         </replace>
                                         <!-- Custom 설정 적용 : active profile -->
@@ -234,13 +234,13 @@
                                             <replacetoken>local</replacetoken>
                                         </replace>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${prod.service.url}" />
+                                        <echo message="replace service url : ${prod.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${prod.service.url}" encoding="UTF-8">
                                             <include name="**/web.xml"/>
                                             <replacetoken>http://prodhost:8080/</replacetoken>
                                         </replace>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${prod.service.url}" />
+                                        <echo message="replace service url : ${prod.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${prod.service.url}" encoding="UTF-8">
                                             <include name="index.html"/>
                                             <replacetoken>http://localhost:8080/</replacetoken>
@@ -451,7 +451,7 @@
 		<dependency>
 		<groupId>org.apache.logging.log4j</groupId>
 		<artifactId>log4j-core</artifactId>
-		<version>2.16.0</version>
+		<version>2.17.0</version>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
@@ -885,7 +885,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore></ignore>
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
