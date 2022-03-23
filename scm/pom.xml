@@ -11,7 +11,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.javadoc.skip>true</maven.javadoc.skip>
-		<spring.framework.version>3.2.8.RELEASE</spring.framework.version>
+		<spring.framework.version>4.3.29.RELEASE</spring.framework.version>
 		<sc.component.version>1.1.8.03</sc.component.version>
 		<sc.grid.version>2.4.0</sc.grid.version>
 		<sc.upload.version>1.1.2.02</sc.upload.version>
@@ -64,7 +64,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>
-			<version>1.8.4.RELEASE</version>
+			<version>1.13.11.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -116,7 +116,7 @@
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
-			<version>2.3.20</version>
+			<version>2.3.30</version>
 		</dependency>
 		<!-- freemarker -->
 		
@@ -213,7 +213,7 @@
 		<dependency>
 		    <groupId>org.apache.commons</groupId>
 		    <artifactId>commons-compress</artifactId>
-		    <version>1.12</version>
+		    <version>1.21</version>
 		</dependency>
 		<!-- apache commons -->
 		
@@ -229,7 +229,7 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>3.4.1</version>
+			<version>3.5.6</version>
 		</dependency>
 		
 		<dependency>
@@ -243,7 +243,7 @@
 		<dependency>
 			<groupId>xerces</groupId>
 			<artifactId>xercesImpl</artifactId>
-			<version>2.9.1</version>
+			<version>2.12.2</version>
 		</dependency>
 		<!-- xercesImpl -->
 		
@@ -251,20 +251,20 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.11</version>
+			<version>4.1.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.11</version>
+			<version>3.17</version>
 		</dependency>
 		<!-- poi -->
 		
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-tools-java2ws</artifactId>
-			<version>3.0.3</version>
+			<version>3.1.14</version>
 		</dependency>
 		
 		<dependency>
@@ -282,7 +282,7 @@
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
-			<version>1.9.3</version>
+			<version>1.9.4</version>
 		</dependency>
 
 		<dependency>
@@ -306,7 +306,7 @@
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
-			<version>3.0.3</version>
+			<version>3.1.14</version>
 		</dependency>
 
 		<dependency>
@@ -385,7 +385,7 @@
 		<dependency>
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-jaxws</artifactId>
-		    <version>1.7.9</version>
+		    <version>1.8.0</version>
 		    <exclusions>
 		    	<exclusion>
 				    <groupId>org.apache.geronimo.specs</groupId>
@@ -417,7 +417,7 @@
 		<dependency>
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-spring</artifactId>
-		    <version>1.7.9</version>
+		    <version>1.8.0</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.axis2</groupId>
@@ -478,7 +478,7 @@
 		<dependency>
 		    <groupId>org.apache.axis2</groupId>
 		    <artifactId>axis2-xmlbeans</artifactId>
-		    <version>1.7.9</version>
+		    <version>1.8.0</version>
 		</dependency>
 		<!-- org.apache.axis2 -->
 		
@@ -587,7 +587,7 @@
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
-			<version>2.2.1</version>
+			<version>2.3.2</version>
 		</dependency>
 		<!-- quartz -->
 
@@ -600,7 +600,7 @@
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
 			<artifactId>quartz</artifactId>
-			<version>2.2.1</version>
+			<version>2.3.2</version>
 		</dependency>
 		
 		<dependency>
@@ -1106,10 +1106,10 @@
 									<echo message="basedir dir:${basedir}"/>
 									<target>
 										<copy todir="${project.build.directory}/ui" includeemptydirs="false">
-											<fileset dir="${basedir}/src/main/ui" />
+											<fileset dir="${basedir}/src/main/ui"/>
 										</copy>
 										<copy todir="${project.build.directory}/profile/${profileId}" includeemptydirs="false">
-											<fileset dir="${basedir}/profile/${profileId}" />
+											<fileset dir="${basedir}/profile/${profileId}"/>
 										</copy>
 									</target>
 								</configuration>
@@ -1175,10 +1175,10 @@
 									<echo message="basedir dir:${basedir}"/>
 									<target>
 										<copy todir="${project.build.directory}/ui" includeemptydirs="false">
-											<fileset dir="${basedir}/src/main/ui" />
+											<fileset dir="${basedir}/src/main/ui"/>
 										</copy>
 										<copy todir="${project.build.directory}/profile/${profileId}" includeemptydirs="false">
-											<fileset dir="${basedir}/profile/${profileId}" />
+											<fileset dir="${basedir}/profile/${profileId}"/>
 										</copy>
 									</target>
 								</configuration>
