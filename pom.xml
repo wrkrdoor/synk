@@ -124,15 +124,15 @@
                                         <!-- Custom 설정 파일을 작업 디렉토리로 이동 -->
                                         <copy todir="${replacement.resources}" overwrite="true">
                                             <fileset dir="${project.basedir}/webapp">
-                                                <include name="**/web.xml" />
-                                                <include name="**/environment.xml.js" />
-                                                <include name="index.html" />
+                                                <include name="**/web.xml"/>
+                                                <include name="**/environment.xml.js"/>
+                                                <include name="index.html"/>
                                             </fileset>
                                         </copy>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${dev.service.url}" />
+                                        <echo message="replace service url : ${dev.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${dev.service.url}" encoding="UTF-8">
-                                            <include name="**/environment.xml*.js" />
+                                            <include name="**/environment.xml*.js"/>
                                             <replacetoken>http://localhost:8080/</replacetoken>
                                         </replace>
                                         <!-- Custom 설정 적용 : active profile -->
@@ -142,13 +142,13 @@
                                             <replacetoken>local</replacetoken>
                                         </replace>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${dev.service.url}" />
+                                        <echo message="replace service url : ${dev.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${dev.service.url}" encoding="UTF-8">
                                             <include name="**/web.xml"/>
                                             <replacetoken>http://devhost:8080/</replacetoken>
                                         </replace>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${dev.service.url}" />
+                                        <echo message="replace service url : ${dev.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${dev.service.url}" encoding="UTF-8">
                                             <include name="index.html"/>
                                             <replacetoken>http://localhost:8080/</replacetoken>
@@ -216,15 +216,15 @@
                                         <!-- Custom 설정 파일을 작업 디렉토리로 이동 -->
                                         <copy todir="${replacement.resources}" overwrite="true">
                                             <fileset dir="${project.basedir}/webapp">
-                                                <include name="**/web.xml" />
-                                                <include name="**/environment.xml.js" />
-                                                <include name="index.html" />
+                                                <include name="**/web.xml"/>
+                                                <include name="**/environment.xml.js"/>
+                                                <include name="index.html"/>
                                             </fileset>
                                         </copy>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${prod.service.url}" />
+                                        <echo message="replace service url : ${prod.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${prod.service.url}" encoding="UTF-8">
-                                            <include name="**/environment.xml*.js" />
+                                            <include name="**/environment.xml*.js"/>
                                             <replacetoken>http://localhost:8080/</replacetoken>
                                         </replace>
                                         <!-- Custom 설정 적용 : active profile -->
@@ -234,13 +234,13 @@
                                             <replacetoken>local</replacetoken>
                                         </replace>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${prod.service.url}" />
+                                        <echo message="replace service url : ${prod.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${prod.service.url}" encoding="UTF-8">
                                             <include name="**/web.xml"/>
                                             <replacetoken>http://prodhost:8080/</replacetoken>
                                         </replace>
                                         <!-- 서비스 접속 URL 변경 -->
-                                        <echo message="replace service url : ${prod.service.url}" />
+                                        <echo message="replace service url : ${prod.service.url}"/>
                                         <replace dir="${replacement.resources}" value="${prod.service.url}" encoding="UTF-8">
                                             <include name="index.html"/>
                                             <replacetoken>http://localhost:8080/</replacetoken>
@@ -343,7 +343,7 @@
         <dependency>
             <groupId>org.springframework.batch</groupId>
             <artifactId>spring-batch-core</artifactId>
-            <version>4.2.3.RELEASE</version>
+            <version>4.3.5</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -885,7 +885,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore></ignore>
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
