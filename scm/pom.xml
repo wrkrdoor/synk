@@ -64,7 +64,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>
-			<version>1.8.4.RELEASE</version>
+			<version>2.7.0</version>
 		</dependency>
 
 		<dependency>
@@ -1106,10 +1106,10 @@
 									<echo message="basedir dir:${basedir}"/>
 									<target>
 										<copy todir="${project.build.directory}/ui" includeemptydirs="false">
-											<fileset dir="${basedir}/src/main/ui" />
+											<fileset dir="${basedir}/src/main/ui"/>
 										</copy>
 										<copy todir="${project.build.directory}/profile/${profileId}" includeemptydirs="false">
-											<fileset dir="${basedir}/profile/${profileId}" />
+											<fileset dir="${basedir}/profile/${profileId}"/>
 										</copy>
 									</target>
 								</configuration>
@@ -1175,10 +1175,10 @@
 									<echo message="basedir dir:${basedir}"/>
 									<target>
 										<copy todir="${project.build.directory}/ui" includeemptydirs="false">
-											<fileset dir="${basedir}/src/main/ui" />
+											<fileset dir="${basedir}/src/main/ui"/>
 										</copy>
 										<copy todir="${project.build.directory}/profile/${profileId}" includeemptydirs="false">
-											<fileset dir="${basedir}/profile/${profileId}" />
+											<fileset dir="${basedir}/profile/${profileId}"/>
 										</copy>
 									</target>
 								</configuration>
