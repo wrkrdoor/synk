@@ -605,7 +605,7 @@
 		<dependency>
 		    <groupId>com.amazonaws</groupId>
 		    <artifactId>aws-java-sdk-kinesisvideo</artifactId>
-		    <version>1.11.327</version>
+		    <version>1.12.253</version>
 		</dependency>
 
 		<dependency>
@@ -2808,10 +2808,10 @@
 									<echo message="basedir dir:${basedir}"/>
 									<target>
 										<copy todir="${project.build.directory}/ui" includeemptydirs="false">
-											<fileset dir="${basedir}/src/main/ui" />
+											<fileset dir="${basedir}/src/main/ui"/>
 										</copy>
 										<copy todir="${project.build.directory}/profile/${profileId}" includeemptydirs="false">
-											<fileset dir="${basedir}/profile/${profileId}" />
+											<fileset dir="${basedir}/profile/${profileId}"/>
 										</copy>
 									</target>
 								</configuration>
@@ -2878,10 +2878,10 @@
 									<echo message="basedir dir:${basedir}"/>
 									<target>
 										<copy todir="${project.build.directory}/ui" includeemptydirs="false">
-											<fileset dir="${basedir}/src/main/ui" />
+											<fileset dir="${basedir}/src/main/ui"/>
 										</copy>
 										<copy todir="${project.build.directory}/profile/${profileId}" includeemptydirs="false">
-											<fileset dir="${basedir}/profile/${profileId}" />
+											<fileset dir="${basedir}/profile/${profileId}"/>
 										</copy>
 									</target>
 								</configuration>
