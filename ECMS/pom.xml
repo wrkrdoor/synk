@@ -1,0 +1,2942 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>emro</groupId>
+	<artifactId>ECMS</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.javadoc.skip>true</maven.javadoc.skip>
+		<spring.framework.version>3.2.8.RELEASE</spring.framework.version>
+		<sc.component.version>1.1.9.07</sc.component.version>
+		<sc.grid.version>2.4.0.23</sc.grid.version>
+		<sc.upload.version>1.1.2.07</sc.upload.version>
+		<sc.editor.version>1.2.3</sc.editor.version>
+		<webcontent-dir>${basedir}/src/main/webapp/WEB-INF/lib</webcontent-dir> 
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>maven repository</name>
+			<url>http://10.105.107.180:3080/repository/maven-public/</url>
+			<releases><enabled>true</enabled></releases>
+			<snapshots><enabled>true</enabled></snapshots>
+		</repository>
+	</repositories>
+	
+	<dependencies>
+	<!-- spring -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-acl</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<!-- spring end -->
+		
+		<dependency>
+		    <groupId>javax.activation</groupId>
+		    <artifactId>activation</artifactId>
+		    <version>1.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>aopalliance</groupId>
+		    <artifactId>aopalliance</artifactId>
+		    <version>1.0</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.james</groupId>
+		    <artifactId>apache-mime4j-core</artifactId>
+		    <version>0.7.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.ow2.asm</groupId>
+		    <artifactId>asm</artifactId>
+		    <version>4.0</version>	
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.7.4</version>
+		    <scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>aspose-pdf-19.2</artifactId>
+			<version>jdk16</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/aspose-pdf-19.2-jdk16.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>aspose-words-19.2</artifactId>
+			<version>jdk16</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/aspose-words-19.2-jdk16.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-acm</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-acmpca</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-alexaforbusiness</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-api-gateway</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-applicationautoscaling</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-appstream</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-appsync</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-athena</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-autoscaling</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-autoscalingplans</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-batch</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-budgets</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cloud9</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-clouddirectory</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cloudformation</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cloudfront</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cloudhsm</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cloudhsmv2</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cloudsearch</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cloudtrail</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cloudwatch</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cloudwatchmetrics</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-codebuild</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-codecommit</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-codedeploy</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-codepipeline</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-codestar</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cognitoidentity</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cognitoidp</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-cognitosync</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-comprehend</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-config</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-connect</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-core</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-costandusagereport</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-costexplorer</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-datapipeline</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-dax</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-devicefarm</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-directconnect</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-directory</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-discovery</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-dms</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-dynamodb</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-ec2</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-ecr</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-ecs</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-efs</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-elasticache</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-elasticbeanstalk</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-elasticloadbalancing</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-elasticloadbalancingv2</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-elasticsearch</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-elastictranscoder</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-emr</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-events</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-fms</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-gamelift</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-glacier</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-glue</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-greengrass</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-guardduty</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-health</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-iam</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-importexport</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-inspector</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-iot</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-iotanalytics</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-iotjobsdataplane</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-kinesis</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-kinesisvideo</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-kms</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-lambda</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-lex</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-lexmodelbuilding</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-lightsail</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-logs</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-machinelearning</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-marketplacecommerceanalytics</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-marketplaceentitlement</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-marketplacemeteringservice</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-mechanicalturkrequester</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-mediaconvert</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-medialive</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-mediapackage</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-mediastore</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-mediastoredata</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-migrationhub</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-mobile</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-models</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-mq</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-opsworks</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-opsworkscm</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-organizations</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-pinpoint</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-polly</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-pricing</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-rds</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-redshift</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-rekognition</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-resourcegroups</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-resourcegroupstaggingapi</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-route53</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-s3</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-sagemaker</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-sagemakerruntime</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-secretsmanager</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-serverlessapplicationrepository</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-servermigration</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-servicecatalog</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-servicediscovery</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-ses</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-shield</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-simpledb</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-simpleworkflow</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-snowball</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-sns</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-sqs</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-ssm</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-stepfunctions</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-storagegateway</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-sts</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-support</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-swf-libraries</artifactId>
+		    <version>1.11.22</version>
+		</dependency>
+
+	   <dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-transcribe</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-translate</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-waf</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-workdocs</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-workmail</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-workspaces</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-xray</artifactId>
+		    <version>1.11.327</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>axiom-api</artifactId>
+			<version>1.2.21</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/axiom-api-1.2.21.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>axiom-dom</artifactId>
+			<version>1.2.21</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/axiom-dom-1.2.21.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>axiom-impl</artifactId>
+			<version>1.2.21</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/axiom-impl-1.2.21.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/axis-1.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.axis2</groupId>
+			<artifactId>axis2</artifactId>
+			<version>1.7.9</version>
+			<type>pom</type>
+		</dependency>
+
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>axis2-adb</artifactId>
+			<version>1.7.9</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/axis2-adb-1.7.9.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>axis2-adb-codegen</artifactId>
+			<version>1.7.9</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/axis2-adb-codegen-1.7.9.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>axis2-codegen</artifactId>
+			<version>1.7.9</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/axis2-codegen-1.7.9.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>axis2-kernel</artifactId>
+			<version>1.7.9</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/axis2-kernel-1.7.9.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>bcmail-jdk15on</artifactId>
+			<version>1.58</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/bcmail-jdk15on-1.58.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
+			<version>1.51</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/bcpkix-jdk15on-1.51.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.57</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/bcprov-jdk15on-1.57.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.58</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/bcprov-jdk15on-1.58.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>bctsp-jdk15</artifactId>
+			<version>1.46</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/bctsp-jdk15-1.46.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>bridge-method-annotation</artifactId>
+			<version>1.13</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/bridge-method-annotation-1.13.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>c3p0</groupId>
+		    <artifactId>c3p0</artifactId>
+		    <version>0.9.1.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib-nodep</artifactId>
+		    <version>2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>commons-cli</groupId>
+		    <artifactId>commons-cli</artifactId>
+		    <version>1.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>commons-codec</groupId>
+		    <artifactId>commons-codec</artifactId>
+		    <version>1.10</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>commons-collections</groupId>
+		    <artifactId>commons-collections</artifactId>
+		    <version>3.2.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-collections4</artifactId>
+		    <version>4.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-compress</artifactId>
+		    <version>1.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>20040218.194635</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-exec</artifactId>
+		    <version>1.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.5</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>commons-lang</groupId>
+		    <artifactId>commons-lang</artifactId>
+		    <version>2.6</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.5</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-vfs2</artifactId>
+			<version>2.0</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>servlets.com</groupId>
+		    <artifactId>cos</artifactId>
+		    <version>05Nov2002</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>crosscert</artifactId>
+			<version>2.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/crosscert-2.2.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>crosscert</artifactId>
+			<version>3.1.14</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/crosscert-3.1.14.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>crossTaxInvoice</artifactId>
+			<version>1.5.16</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/crossTaxInvoice-1.5.16.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>cross_asn1_lite</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/cross_asn1_lite-1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.github.virtuald</groupId>
+		    <artifactId>curvesapi</artifactId>
+		    <version>1.04</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-core</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-bindings-soap</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-bindings-xml</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-databinding-aegis</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-databinding-jaxb</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-frontend-simple</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-javascript</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-transports-http</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-ws-addr</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-ws-policy</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-rt-wsdl</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-tools-common</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-tools-java2ws</artifactId>
+			<version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-tools-validator</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-tools-wsdlto-core</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-tools-wsdlto-databinding-jaxb</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.cxf</groupId>
+		    <artifactId>cxf-tools-wsdlto-frontend-jaxws</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+		
+		<!-- ttddyy datasource-proxy -->
+		<dependency>
+			<groupId>net.ttddyy</groupId>
+			<artifactId>datasource-proxy</artifactId>
+			<version>1.3.3</version>
+		</dependency>
+		<!-- ttddyy datasource-proxy -->
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>dext5-editor</artifactId>
+			<version>1.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/dext5-editor-1.1.jar</systemPath>
+		</dependency>
+
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>2.9.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/ehcache-2.9.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>emro_edc</artifactId>
+			<version>2.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/emro_edc-2.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>ets-hub-kit-car-2.2.5</artifactId>
+			<version>1.6</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/ets-hub-kit-car-2.2.5-1.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>fontbox</artifactId>
+			<version>2.0.24</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/fontbox-2.0.24.jar</systemPath>
+		</dependency>
+
+		<!-- freemarker -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.20</version>
+		</dependency>
+		<!-- freemarker -->
+
+		<dependency>
+		    <groupId>org.apache.geronimo.specs</groupId>
+		    <artifactId>geronimo-activation_1.1_spec</artifactId>
+		    <version>1.0.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.geronimo.specs</groupId>
+		    <artifactId>geronimo-jta_1.1_spec</artifactId>
+		    <version>1.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.geronimo.specs</groupId>
+		    <artifactId>geronimo-stax-api_1.0_spec</artifactId>
+		    <version>1.0.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.geronimo.specs</groupId>
+		    <artifactId>geronimo-ws-metadata_2.0_spec</artifactId>
+		    <version>1.1.2</version>
+		</dependency>
+
+<!--
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>2.4.20</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/groovy-all-2.4.20.pom</systemPath>
+		</dependency>
+-->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>20.0</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava-jdk5</artifactId>
+		    <version>17.0</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.hamcrest</groupId>
+		    <artifactId>hamcrest-core</artifactId>
+		    <version>1.1</version>
+		    <scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>HikariCP-java6</artifactId>
+			<version>2.3.13</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/HikariCP-java6-2.3.13.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>htmlunit</artifactId>
+			<version>2.21</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/htmlunit-2.21.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>htmlunit-core-js</artifactId>
+			<version>2.17</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/htmlunit-core-js-2.17.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>htmlunit-driver</artifactId>
+			<version>2.21</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/htmlunit-driver-2.21.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpasyncclient</artifactId>
+		    <version>4.1.4</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.4</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpcore</artifactId>
+		    <version>4.4</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpcore-nio</artifactId>
+		    <version>4.4.10</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpmime</artifactId>
+		    <version>4.4</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.ibm.cos</groupId>
+		    <artifactId>ibm-cos-java-sdk</artifactId>
+		    <version>2.4.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.ibm.cos</groupId>
+		    <artifactId>ibm-cos-java-sdk-core</artifactId>
+		    <version>2.4.1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.ibm.cos</groupId>
+		    <artifactId>ibm-cos-java-sdk-kms</artifactId>
+		    <version>2.4.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.ibm.cos</groupId>
+		    <artifactId>ibm-cos-java-sdk-s3</artifactId>
+		    <version>2.4.1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>software.amazon.ion</groupId>
+		    <artifactId>ion-java</artifactId>
+		    <version>1.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>JAC</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/JAC-1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>2.6.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.6.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jackson-core-2.6.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jackson-core-asl-1.9.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jackson-databind-2.6.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jackson-dataformat-cbor</artifactId>
+			<version>2.9.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jackson-dataformat-cbor-2.9.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jackson-mapper-asl-1.9.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.jasypt</groupId>
+		    <artifactId>jasypt</artifactId>
+		    <version>1.9.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.jasypt</groupId>
+		    <artifactId>jasypt-spring31</artifactId>
+		    <version>1.9.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>javax.annotation</groupId>
+		    <artifactId>javax.annotation-api</artifactId>
+		    <version>1.3.2</version>
+		</dependency>
+
+		<!-- inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+		<!-- inject -->
+
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<!-- servlet -->
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>javaxXML</artifactId>
+			<version>1.4</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/javaxXML-1.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jaxb-core-2.2.10</artifactId>
+			<version>b140310.1920</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jaxb-core-2.2.10-b140310.1920.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jaxb-impl-2.2.10</artifactId>
+			<version>b140310.1920</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jaxb-impl-2.2.10-b140310.1920.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jaxb-xjc-2.2.10</artifactId>
+			<version>b140310.1920</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jaxb-xjc-2.2.10-b140310.1920.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1.6</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jaxen-1.1.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jaxp-api</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jaxp-api-1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jaxrpc-api</artifactId>
+			<version>1.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jaxrpc-api-1.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jaxws-tools</artifactId>
+			<version>2.2.6</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jaxws-tools-2.2.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jcifs</artifactId>
+			<version>1.3.17</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jcifs-1.3.17.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jcip-annotations</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jcip-annotations-1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jcl-core</artifactId>
+			<version>2.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jcl-core-2.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jcl-over-slf4j-1.7.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jcommander</artifactId>
+			<version>1.48</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jcommander-1.48.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jdom</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jdom-1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-io</artifactId>
+		    <version>9.2.15.v20160210</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>jetty-rc-repacked</artifactId>
+		    <version>5</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>jetty-repacked</artifactId>
+		    <version>9.2.13.v20150730</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+		    <artifactId>jetty-util</artifactId>
+		    <version>9.2.15.v20160210</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jmespath-java</artifactId>
+			<version>1.11.327</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jmespath-java-1.11.327.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jna</artifactId>
+			<version>4.1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jna-4.1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>jna-platform</artifactId>
+			<version>4.1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/jna-platform-4.1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.9.3</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/joda-time-2.9.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>joss</artifactId>
+			<version>0.9.14</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/joss-0.9.14.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20160212</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		    <version>1.13.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.github.jsqlparser</groupId>
+			<artifactId>jsqlparser</artifactId>
+			<version>0.9.4</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.google.code.findbugs</groupId>
+		    <artifactId>jsr305</artifactId>
+		    <version>3.0.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>javax.ws.rs</groupId>
+		    <artifactId>jsr311-api</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+
+		<!-- jstl -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<!-- jstl -->
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.10</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/junit-4.10.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>justoolkit</artifactId>
+			<version>2.0.1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/justoolkit-2.0.1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>KICASGIxLinker</artifactId>
+			<version>2.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/KICASGIxLinker-2.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.esotericsoftware.kryo</groupId>
+		    <artifactId>kryo</artifactId>
+		    <version>2.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>ldapjdk</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/ldapjdk-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>libgpkiapi_jni</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/libgpkiapi_jni-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.16</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.20</version>
+		</dependency>
+
+		<!-- mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<!-- mail -->
+
+		<dependency>
+		    <groupId>org.apache.maven.scm</groupId>
+		    <artifactId>maven-scm-api</artifactId>
+		    <version>1.4</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.maven.scm</groupId>
+		    <artifactId>maven-scm-provider-svn-commons</artifactId>
+		    <version>1.4</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.maven.scm</groupId>
+		    <artifactId>maven-scm-provider-svnexe</artifactId>
+		    <version>1.4</version>
+		</dependency>
+
+		<dependency>
+   			<groupId>com.esotericsoftware.minlog</groupId>
+		    <artifactId>minlog</artifactId>
+		    <version>1.2</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>mx4j</groupId>
+		    <artifactId>mx4j-tools</artifactId>
+		    <version>3.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>mysema-commons-lang</artifactId>
+			<version>0.2.4</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/mysema-commons-lang-0.2.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.neethi</groupId>
+		    <artifactId>neethi</artifactId>
+		    <version>3.0.3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>net.sourceforge.htmlunit</groupId>
+		    <artifactId>neko-htmlunit</artifactId>
+		    <version>2.21</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty</artifactId>
+		    <version>3.5.7.Final</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-buffer</artifactId>
+		    <version>4.1.17.Final</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-codec</artifactId>
+		    <version>4.1.17.Final</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-codec-http</artifactId>
+		    <version>4.1.17.Final</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-common</artifactId>
+		    <version>4.1.17.Final</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-handler</artifactId>
+		    <version>4.1.17.Final</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-resolver</artifactId>
+		    <version>4.1.17.Final</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.netty</groupId>
+		    <artifactId>netty-transport</artifactId>
+		    <version>4.1.17.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>objenesis</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/objenesis-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/ojdbc6-11.2.0.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>oss</artifactId>
+			<version>4.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/oss-4.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.pdfbox</groupId>
+		    <artifactId>pdfbox</artifactId>
+		    <version>2.0.24</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>pdfFonts</artifactId>
+			<version>2.3</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/pdfFonts-2.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.codehaus.plexus</groupId>
+		    <artifactId>plexus-utils</artifactId>
+		    <version>1.5.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.17</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml-schemas</artifactId>
+		    <version>3.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>polymer-document</artifactId>
+			<version>1.0.4</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/polymer-document-1.0.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.quartz-scheduler</groupId>
+		    <artifactId>quartz</artifactId>
+		    <version>2.2.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.mysema.querydsl</groupId>
+		    <artifactId>querydsl-core</artifactId>
+		    <version>3.6.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.mysema.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+			<version>3.6.9</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.esotericsoftware.reflectasm</groupId>
+		    <artifactId>reflectasm</artifactId>
+		    <version>1.03</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>regexp</groupId>
+		    <artifactId>regexp</artifactId>
+		    <version>1.3</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.mozilla</groupId>
+		    <artifactId>rhino</artifactId>
+		    <version>1.7.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>sac</artifactId>
+			<version>1.3</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/sac-1.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>sapjco3</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/sapjco3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>sc-component-1.1.9.07</artifactId>
+			<version>SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/sc-component-1.1.9.07-SNAPSHOT.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>sc-editor</artifactId>
+			<version>1.2.5</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/sc-editor-1.2.5.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>sc-grid</artifactId>
+			<version>2.4.0.23</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/sc-grid-2.4.0.23.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>sc-upload</artifactId>
+			<version>1.1.2.09-20220302.075529-3</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/sc-upload-1.1.2.09-20220302.075529-3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>score-itext217-3.0.4-kang</artifactId>
+			<version>1.58</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/score-itext217-3.0.4-kang-1.58.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>score-pdf-3.2.7-kang</artifactId>
+			<version>1.58</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/score-pdf-3.2.7-kang-1.58.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-api</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-api-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-chrome-driver-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-edge-driver</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-edge-driver-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-firefox-driver</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-firefox-driver-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-ie-driver</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-ie-driver-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-java-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-leg-rc</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-leg-rc-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-remote-driver-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-safari-driver</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-safari-driver-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-server-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>selenium-support</artifactId>
+			<version>2.53.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/selenium-support-2.53.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>xalan</groupId>
+		    <artifactId>serializer</artifactId>
+		    <version>2.7.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/servlet-api-2.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>sggpki</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/sggpki-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>sgsecukit</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/sgsecukit-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>signgateAuth</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/signgateAuth-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>signgateCrypto</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/signgateCrypto-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>signgateCryptoExtension</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/signgateCryptoExtension-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>signgate_common</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/signgate_common-1.2.jar</systemPath>
+		</dependency>
+
+		<!-- Captcha -->
+		<dependency>
+			<groupId>cn.apiclub.tool</groupId>
+			<artifactId>simplecaptcha</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<!-- Captcha -->
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>sisu-guice-2.1.7</artifactId>
+			<version>noaop</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/sisu-guice-2.1.7-noaop.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.sonatype.sisu</groupId>
+		    <artifactId>sisu-inject-bean</artifactId>
+		    <version>1.4.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.7.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-blockchain</artifactId>
+			<version>9.1.04</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-blockchain-9.1.04.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-calendar</artifactId>
+			<version>1.1.3</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-calendar-1.1.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-devops-9.1.16</artifactId>
+			<version>SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-devops-9.1.16-SNAPSHOT.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-excel</artifactId>
+			<version>1.1.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-excel-1.1.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-hint</artifactId>
+			<version>1.0.3</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-hint-1.0.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-ifproxy</artifactId>
+			<version>1.1.8</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-ifproxy-1.1.8.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-library-client</artifactId>
+			<version>1.0.3</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-library-client-1.0.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-license-1.0.6</artifactId>
+			<version>smartsuite9</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-license-1.0.6-smartsuite9.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-logging</artifactId>
+			<version>1.1.4</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-logging-1.1.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-memo</artifactId>
+			<version>1.1.3</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-memo-1.1.3.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-messagesource</artifactId>
+			<version>2.1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-messagesource-2.1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-myapp</artifactId>
+			<version>1.0.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-myapp-1.0.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-scheduler</artifactId>
+			<version>1.1.6</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-scheduler-1.1.6.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-security</artifactId>
+			<version>1.2.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-security-1.2.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-session-management</artifactId>
+			<version>1.0.4</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-session-management-1.0.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-spring</artifactId>
+			<version>1.0.9</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-spring-1.0.9.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-upload</artifactId>
+			<version>1.2.5</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-upload-1.2.5.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>smartsuite-webcrawler-1.0.0</artifactId>
+			<version>SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/smartsuite-webcrawler-1.0.0-SNAPSHOT.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.yaml</groupId>
+		    <artifactId>snakeyaml</artifactId>
+		    <version>1.8</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-aop</artifactId>
+		    <version>3.2.13.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+			<version>1.8.4.RELEASE</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>3.2.13.RELEASE</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.springframework.mobile</groupId>
+		    <artifactId>spring-mobile-device</artifactId>
+		    <version>1.1.5.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>ss_css-1.0</artifactId>
+			<version>ss_css</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/ss_css-1.0-ss_css.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>stax-api</artifactId>
+			<version>1.0.1</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/stax-api-1.0.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>stax2-api</artifactId>
+			<version>3.1.4</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/stax2-api-3.1.4.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>template-designer</artifactId>
+			<version>1.0.4-20220527.035702-6</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/template-designer-1.0.4-20220527.035702-6.jar</systemPath>
+		</dependency>
+
+		<!-- thumbnailator -->
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.8</version>
+		</dependency>
+		<!-- thumbnailator -->
+
+		<dependency>
+		    <groupId>org.tinylog</groupId>
+		    <artifactId>tinylog</artifactId>
+		    <version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.5.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/tools-1.5.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>tradesign-client</artifactId>
+			<version>3.5.35</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/tradesign-client-3.5.35.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.velocity</groupId>
+		    <artifactId>velocity</artifactId>
+		    <version>1.7</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>edu.vt.middleware</groupId>
+		    <artifactId>vt-crypt</artifactId>
+		    <version>2.1.4</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>edu.vt.middleware</groupId>
+		    <artifactId>vt-dictionary</artifactId>
+		    <version>3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>vt-password</artifactId>
+			<version>3.1.2</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/vt-password-3.1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.eclipse.jetty.websocket</groupId>
+		    <artifactId>websocket-api</artifactId>
+		    <version>9.2.15.v20160210</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.eclipse.jetty.websocket</groupId>
+		    <artifactId>websocket-client</artifactId>
+		    <version>9.2.15.v20160210</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.eclipse.jetty.websocket</groupId>
+		    <artifactId>websocket-common</artifactId>
+		    <version>9.2.15.v20160210</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.woden</groupId>
+		    <artifactId>woden-core</artifactId>
+		    <version>1.0M10</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.codehaus.woodstox</groupId>
+		    <artifactId>woodstox-core-asl</artifactId>
+		    <version>4.4.1</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>wsdl4j</groupId>
+		    <artifactId>wsdl4j</artifactId>
+		    <version>1.6.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>wss4j</artifactId>
+			<version>1.5.7</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/wss4j-1.5.7.jar</systemPath>
+		</dependency>
+
+		<dependency>
+		    <groupId>xalan</groupId>
+		    <artifactId>xalan</artifactId>
+		    <version>2.7.2</version>
+		</dependency>
+
+		<!-- xercesImpl -->
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+		<!-- xercesImpl -->
+
+		<dependency>
+		    <groupId>xml-apis</groupId>
+		    <artifactId>xml-apis</artifactId>
+		    <version>1.3.04</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>xml-resolver</groupId>
+		    <artifactId>xml-resolver</artifactId>
+		    <version>1.2</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.xmlbeans</groupId>
+		    <artifactId>xmlbeans</artifactId>
+		    <version>2.6.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.ws.xmlschema</groupId>
+			<artifactId>xmlschema-core</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.santuario</groupId>
+		    <artifactId>xmlsec</artifactId>
+		    <version>1.4.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>smartsuite.project</groupId>
+			<artifactId>nets-nsso-agent-core</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/nets-nsso-agent-core.jar</systemPath>
+		</dependency>
+		
+		<dependency>
+			<groupId>ksign</groupId>
+			<artifactId>SpinApiLibV3-3.2-all-r2463</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${webcontent-dir}/SpinApiLibV3-3.2-all-r2463.jar</systemPath>
+		</dependency>
+				
+		<!--  smartsuite.project  -->
+	</dependencies>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<echo message="Build dir:${project.build.directory}"/>
+						<echo message="basedir dir:${basedir}"/>
+						<source>1.7</source>
+						<target>1.7</target>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profileId>aws-dev</profileId>
+				<maven.test.skip>true</maven.test.skip>
+			</properties>
+			<build>
+				<finalName>e-cms</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<id>copy-webResource</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+               						<echo message="${line.separator}"/>
+									<echo message="Build dir:${project.build.directory}"/>
+									<echo message="basedir dir:${basedir}"/>
+									<target>
+										<copy todir="${project.build.directory}/ui" includeemptydirs="false">
+											<fileset dir="${basedir}/src/main/ui" />
+										</copy>
+										<copy todir="${project.build.directory}/profile/${profileId}" includeemptydirs="false">
+											<fileset dir="${basedir}/profile/${profileId}" />
+										</copy>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.6</version>
+						<configuration>
+							<outputFileNameMapping>$@{artifactId}@.@{extension}@</outputFileNameMapping>
+							<webResources>
+								<resource>
+									<directory>${project.build.directory}/ui</directory>
+									<targetPath>ui</targetPath>
+								</resource>
+								<resource>
+									<directory>${project.build.directory}/profile/${profileId}/</directory>
+									<targetPath>/</targetPath>
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-release-plugin</artifactId>
+						<version>2.5.3</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-scm-plugin</artifactId>
+								<version>1.9.4</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profileId>aws-prod</profileId>
+				<maven.test.skip>true</maven.test.skip>
+			</properties>
+			<build>
+				<finalName>e-cms</finalName>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<id>copy-webResource</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+								<configuration>
+               						<echo message="${line.separator}"/>
+									<echo message="Build dir:${project.build.directory}"/>
+									<echo message="basedir dir:${basedir}"/>
+									<target>
+										<copy todir="${project.build.directory}/ui" includeemptydirs="false">
+											<fileset dir="${basedir}/src/main/ui" />
+										</copy>
+										<copy todir="${project.build.directory}/profile/${profileId}" includeemptydirs="false">
+											<fileset dir="${basedir}/profile/${profileId}" />
+										</copy>
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.6</version>
+						<configuration>
+							<outputFileNameMapping>$@{artifactId}@.@{extension}@</outputFileNameMapping>
+							<webResources>
+								<resource>
+									<directory>${project.build.directory}/ui</directory>
+									<targetPath>ui</targetPath>
+								</resource>
+								<resource>
+									<directory>${project.build.directory}/profile/${profileId}/</directory>
+									<targetPath>/</targetPath>
+								</resource>
+							</webResources>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-release-plugin</artifactId>
+						<version>2.5.3</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.maven.plugins</groupId>
+								<artifactId>maven-scm-plugin</artifactId>
+								<version>1.9.4</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+<!--		<profile>
+          <id>sonar</id>
+          <activation>
+            <activeByDefault>true</activeByDefault>
+          </activation>
+          <properties>
+            <sonar.login>74c31f0a636dcbc3be2c1b4ca27f03651632b0bf</sonar.login>
+            <sonar.projectKey>e-cms</sonar.projectKey>
+            <sonar.projectName>e-cms</sonar.projectName>
+            <sonar.host.url>http://10.105.107.180:5080</sonar.host.url>
+            <sonar.report.export.path>.</sonar.report.export.path>
+            <sonar.sources>src</sonar.sources>
+            <sonar.java.sourcesion>1.0</sonar.java.sourcesion>
+            <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+            <sonar.java.binaries>target</sonar.java.binaries>
+          </properties>
+        </profile>-->
+	</profiles>
+</project>
